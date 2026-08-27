@@ -1,0 +1,21 @@
+---
+- name: Install apache
+  become: true
+  hosts: all
+  gather_facts: true
+  tasks:
+    - name: Update all system packages
+      dnf:
+        name: "*"
+        state: latest
+
+    - name: Install apache
+      dnf:
+        name: httpd
+        state: present
+
+    - name: Restart apache service
+      service:
+        name: httpd
+        state: restarted
+        enabled: true    
