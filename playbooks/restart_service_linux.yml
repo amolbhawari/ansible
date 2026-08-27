@@ -1,6 +1,6 @@
 ---
 - name: Install apache
-  # become: true
+  become: true
   hosts: all
   gather_facts: true
   tasks:
