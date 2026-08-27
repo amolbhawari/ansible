@@ -5,17 +5,17 @@
   gather_facts: true
   tasks:
     - name: Update all system packages
-      dnf:
+      apt:
         name: "*"
         state: latest
 
     - name: Install apache
-      dnf:
-        name: httpd
+      apt:
+        name: apache2
         state: present
 
     - name: Restart apache service
       service:
-        name: httpd
+        name: apache2
         state: restarted
         enabled: true    
